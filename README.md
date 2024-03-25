@@ -1,3 +1,3 @@
 ## Katas
 
-Collection of katas developed driven by TDD 
+Collection of katas developed through TDD.
