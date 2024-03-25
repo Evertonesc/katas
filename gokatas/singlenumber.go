@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 // no empty array of integers
 // every element appears twice except for one.

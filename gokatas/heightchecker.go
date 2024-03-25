@@ -1,8 +1,6 @@
-package katas
+package gokatas
 
-import (
-	"sort"
-)
+import "sort"
 
 func heightChecker(heights []int) int {
 	unexpectedHeight := 0

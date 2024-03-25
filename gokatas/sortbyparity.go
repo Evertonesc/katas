@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 func sortArrayByParity(nums []int) []int {
 	k := 0

@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 func findDuplicate(nums []int) int {
 	seen := make(map[int]bool)

@@ -1,0 +1,18 @@
+You are building a rover that is going to explore Mars (represented as a grid).
+
+The initial starting point of a rover is 0:0:N
+0,0 are X and Y coordinates on a grid
+‘N’ is the direction rover is facing - alias for North (directions it can face are N, S, E, W)
+Rover accepts different commands and returns its position after executing them
+‘L’ and ‘R’ commands rotate the rover left and right, respectively
+‘M‘ command moves the rover one step in the direction it’s currently facing. 
+E.g. If its position is “2:3:E” (facing East), sending ‘M’ to the rover moves it one step in the direction of East,
+i.e. “3:3:E”.
+
+The rover receives a string of multiple commands and returns its position after executing commands. 
+For example, assuming rover’s starting position is “0:0:N”, sending "RMMLML" to the rover will move it to "2:1:W".
+
+To make things simple, assume following:
+Rover’s starting point is always 0:0:N
+The grid has infinite size, so don’t worry about falling off the grid
+COMMANDS THE ROVER WILL GET WILL ALWAYS BE VALID, SO NO NEED TO GUARD AGAINST INVALID INPUT

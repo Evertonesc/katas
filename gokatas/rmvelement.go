@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 func removeElement(nums []int, val int) int {
 	k := 0

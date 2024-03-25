@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 // list b do not need to be modified
 // 1 - check the edge cases i.e = arrays with different lengths

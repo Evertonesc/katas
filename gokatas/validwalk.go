@@ -1,4 +1,4 @@
-package katas
+package gokatas
 
 func IsValidWalk(walk []rune) bool {
 	if len(walk) != 10 {
