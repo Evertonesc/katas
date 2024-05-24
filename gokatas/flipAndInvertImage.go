@@ -1,5 +1,6 @@
 package gokatas
 
+// leetcode #832
 func flipAndInvertImage(image [][]int) [][]int {
 	for i := 0; i < len(image); i++ {
 		last := len(image[i]) - 1
