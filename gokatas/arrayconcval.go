@@ -8,7 +8,7 @@ import (
 func findTheArrayConcVal(nums []int) int64 {
 	concVal := 0
 
-	for len(nums) >= 1 {
+	for len(nums) > 0 {
 		if len(nums) == 1 {
 			concVal += nums[0]
 			break
