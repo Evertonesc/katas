@@ -33,6 +33,13 @@ func Test_getWinner(t *testing.T) {
 			},
 			want: 5,
 		},
+		{
+			args: args{
+				arr: []int{1, 11, 22, 33, 44, 55, 66, 77, 88, 99},
+				k:   1000000000,
+			},
+			want: 99,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -3,6 +3,17 @@ package gokatas
 func getWinner(arr []int, k int) int {
 	winDb := make(map[int]int)
 
+	if k >= len(arr) {
+		max := arr[0]
+		for _, v := range arr {
+			if v > max {
+				max = v
+			}
+		}
+
+		return max
+	}
+
 	for {
 		larger, smaller := 0, 0
 		if arr[0] > arr[1] {
