@@ -1,8 +1,5 @@
 package gokatas
 
-// after a battle, move the loser to the end of array and the rest of the elements to the left
-// the code must iterate k times?
-// hashmap to store the consecutive wins for each number?
 func getWinner(arr []int, k int) int {
 	winDb := make(map[int]int)
 
