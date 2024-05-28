@@ -14,23 +14,19 @@ func getWinner(arr []int, k int) int {
 		return max
 	}
 
-	for {
-		larger, smaller := 0, 0
-		if arr[0] > arr[1] {
-			larger, smaller = arr[0], arr[1]
-			arr = append(arr[:1], arr[2:]...)
-			arr = append(arr, smaller)
-
+	winner := arr[0]
+	for i := 1; i < len(arr); i++ {
+		if winner > arr[i] {
+			winDb[winner]++
 		} else {
-			larger, smaller = arr[1], arr[0]
-			arr = append(arr[1:])
-			arr = append(arr, smaller)
+			winner = arr[i]
+			winDb[winner]++
 		}
 
-		winDb[larger]++
-
-		if winDb[larger] == k {
-			return larger
+		if winDb[winner] == k {
+			return winner
 		}
 	}
+
+	return winner
 }
