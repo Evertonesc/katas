@@ -16,13 +16,9 @@ func getWinner(arr []int, k int) int {
 			arr = append(arr, smaller)
 		}
 
-		if _, ok := winDb[larger]; !ok {
-			winDb[larger]++
-		} else {
-			winDb[larger]++
-		}
-		v, _ := winDb[larger]
-		if v == k {
+		winDb[larger]++
+
+		if winDb[larger] == k {
 			return larger
 		}
 	}
