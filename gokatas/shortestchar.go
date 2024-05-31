@@ -18,11 +18,13 @@ func shortestsToChar(s string, c byte) []int {
 	j := 0
 	for i := 0; i < len([]rune(s)); i++ {
 		if i > charSpots[j] {
-			cs := abs(i - charSpots[j])
-			n := abs(i - charSpots[j+1])
+			if len(charSpots) > 1 {
+				cs := abs(i - charSpots[j])
+				n := abs(i - charSpots[j+1])
 
-			if cs > n {
-				j++
+				if cs > n {
+					j++
+				}
 			}
 		}
 

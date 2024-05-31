@@ -31,6 +31,13 @@ func Test_shortestsToChar(t *testing.T) {
 		},
 		{
 			args: args{
+				s: "aaba",
+				c: 'b',
+			},
+			want: []int{2, 1, 0, 1},
+		},
+		{
+			args: args{
 				s: "loveleetcode",
 				c: 'e',
 			},
