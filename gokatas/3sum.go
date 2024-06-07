@@ -17,9 +17,10 @@ func threeSum(nums []int) [][]int {
 			continue
 		}
 
-		right, left := i+1, n-1
-		for right < left {
-			if nums[i]+nums[right]+nums[left] == 0 {
+		left, right := i+1, n-1
+		for left < right {
+			sum := nums[i] + nums[right] + nums[left]
+			if sum == 0 {
 				triplet := []int{nums[i], nums[right], nums[left]}
 				tr := tripletRep(triplet)
 
@@ -29,10 +30,23 @@ func threeSum(nums []int) [][]int {
 
 				triplets = append(triplets, triplet)
 				m[tr]++
-			}
 
-			right++
-			left--
+				for left < right && nums[left] == nums[left+1] {
+					left++
+				}
+
+				for left < right && nums[right] == nums[right-1] {
+					right--
+				}
+
+				left++
+				right--
+
+			} else if sum < 0 {
+				left++
+			} else {
+				right--
+			}
 		}
 	}
 
