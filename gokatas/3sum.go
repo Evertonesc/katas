@@ -5,30 +5,34 @@ import (
 	"sort"
 )
 
-// the solution set cannot contian duplicate triplets
-// all the triplets values must not be equal and its sums must be equal to 0
-
 // leetcode #15
 func threeSum(nums []int) [][]int {
 	triplets := [][]int{}
 	m := make(map[string]int)
+	n := len(nums)
 
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			for k := j + 1; k < len(nums); k++ {
-				if nums[i]+nums[j]+nums[k] == 0 {
-					triplet := []int{nums[i], nums[j], nums[k]}
-					sort.Ints(triplet)
-					tr := tripletRep(triplet)
+	sort.Ints(nums)
+	for i := 0; i < n-2; i++ {
+		if i > 0 && nums[i+1] == nums[i-1] {
+			continue
+		}
 
-					if _, ok := m[tr]; ok {
-						continue
-					}
+		right, left := i+1, n-1
+		for right < left {
+			if nums[i]+nums[right]+nums[left] == 0 {
+				triplet := []int{nums[i], nums[right], nums[left]}
+				tr := tripletRep(triplet)
 
-					triplets = append(triplets, triplet)
-					m[tr]++
+				if _, ok := m[tr]; ok {
+					break
 				}
+
+				triplets = append(triplets, triplet)
+				m[tr]++
 			}
+
+			right++
+			left--
 		}
 	}
 
