@@ -12,25 +12,20 @@ func findDuplicates(paths []string) [][]string {
 		// split path to get the directory and its files
 		dc := strings.Split(paths[i], " ")
 
-		// ignore the directory to build the full working path
-		fullPaths := make([]string, len(dc)-1)
+		// ignore the directory by starting iterate at index 1
+		for i := 1; i < len(dc); i++ {
 
-		// build the full working path
-		for i := 0; i < len(fullPaths); i++ {
-			fullPaths[i] = dc[0] + "/" + dc[i+1]
-		}
+			//get the file content and the file itself
+			fc, f := extractFileAndContent(dc[i])
 
-		// for each working path, extract the content of the file and the file name
-		for _, v := range fullPaths {
-			fc, sv := extractFileAndContent(v)
-			// fc := extractContent(v)
-			// sv := removeContent(v)
+			// build the file path without the content
+			fp := dc[0] + "/" + f
 
-			// check whenever the file content is present in the map
+			// check whenever the file content exists in the file map
 			if kv, ok := fmap[fc]; ok {
 
 				// when it does, append the new file that has this specific content
-				kv = append(kv, sv)
+				kv = append(kv, fp)
 				fmap[fc] = kv
 
 				// store all duplicated contents
@@ -39,8 +34,9 @@ func findDuplicates(paths []string) [][]string {
 				}
 
 			} else {
-				fmap[fc] = []string{sv}
+				fmap[fc] = []string{fp}
 			}
+
 		}
 	}
 
