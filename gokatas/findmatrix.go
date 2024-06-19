@@ -18,6 +18,7 @@ func findMatrix(nums []int) [][]int {
 			subArr = append(subArr, nums[i])
 			nums = append(nums[:i], nums[i+1:]...)
 
+			// always get the first element
 			i--
 		}
 
